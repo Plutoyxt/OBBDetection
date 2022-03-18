@@ -12,7 +12,7 @@ from ..custom import CustomDataset
 @DATASETS.register_module()
 class SSDDDataset(CustomDataset):
 
-    CLASSES = bt.get_classes('ssdd')
+    CLASSES = bt.get_classes('SSDD')
 
     def __init__(self,
                  xmltype,
