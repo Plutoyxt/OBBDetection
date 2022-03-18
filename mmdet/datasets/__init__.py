@@ -26,5 +26,5 @@ __all__ = [
     'CityscapesDataset', 'LVISDataset', 'DeepFashionDataset', 'GroupSampler',
     'DistributedGroupSampler', 'DistributedSampler', 'build_dataloader',
     'ConcatDataset', 'RepeatDataset', 'ClassBalancedDataset',
-    'WIDERFaceDataset', 'DATASETS', 'PIPELINES', 'build_dataset'
+    'WIDERFaceDataset', 'DATASETS', 'PIPELINES', 'build_dataset','SSDDDataset','DIORDataset'
 ]
