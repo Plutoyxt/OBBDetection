@@ -38,5 +38,5 @@ __all__ = [
     'FOVEA', 'FSAF', 'NASFCOS', 'PointRend', 'GFL',
 
     'OBBBaseDetector', 'OBBTwoStageDetector', 'OBBSingleStageDetector',
-    'FasterRCNNOBB', 'RetinaNetOBB', 'RoITransformer'
+    'FasterRCNNOBB', 'RetinaNetOBB', 'RoITransformer','OrientedRCNN'
 ]
