@@ -9,5 +9,5 @@ from .obb.obb_fcn_mask_head import OBBFCNMaskHead
 
 __all__ = [
     'FCNMaskHead', 'HTCMaskHead', 'FusedSemanticHead', 'GridHead',
-    'MaskIoUHead', 'CoarseMaskHead', 'MaskPointHead'
+    'MaskIoUHead', 'CoarseMaskHead', 'MaskPointHead','OBBFCNMaskHead'
 ]
