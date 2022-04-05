@@ -1,5 +1,5 @@
 dataset_type = 'SSDDDataset'
-data_root = '/content/drive/MyDrive/OBBDetection bishe/SSDD-data'
+data_root = '/content/SSDD-data/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
@@ -76,13 +76,13 @@ data = dict(
         xmltype='obb',
         imgset=data_root + 'ImageSets/Main/train.txt',
         ann_file=data_root + 'Annotations',
-        img_prefix=data_root + 'JPEGImages/',
+        img_prefix=data_root + 'JPEGImages_train/',
         pipeline=train_pipeline),
     test=dict(
         type=dataset_type,
         xmltype='obb',
         imgset=data_root + 'ImageSets/Main/test.txt',
         ann_file=data_root + 'Annotations',
-        img_prefix=data_root + 'JPEGImages/',
+        img_prefix=data_root + 'JPEGImages_test/',
         pipeline=test_pipeline))
 evaluation = None
