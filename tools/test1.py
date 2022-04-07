@@ -8,9 +8,10 @@ checkpoint_file = '/content/RESULT/latest.pth'
 model = init_detector(config_file, checkpoint_file, device='cuda:0')
 
 # test a single image and show the results
-img = '/content/SSDD-data/JPEGImages_train/000015.jpg'  # or img = mmcv.imread(img), which will only load it once
+img = '/content/SSDD-data/JPEGImages_train/000196.jpg'  # or img = mmcv.imread(img), which will only load it once
 result = inference_detector(model, img)
 # visualize the results in a new window
 model.show_result(img, result)
 # or save the visualization results to image files
-model.show_result(img, result, out_file='/content/result1.jpg')
+model.show_result(img, result, out_file='/content/result.jpg')
+
