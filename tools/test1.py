@@ -1,20 +1,16 @@
-# coding=utf-8
+from mmdet.apis import init_detector, inference_detector
+import mmcv
 
-from mmdet.apis import init_detector
-from mmdet.apis import inference_detector
-from mmdet.apis import show_result
+config_file = '/content/mmdetection/BboxToolkit/OBBDetection/configs/obb/oriented_rcnn/faster_rcnn_orpn_r50_fpn_1x_ssdd.py'
+checkpoint_file = '/content/RESULT/latest.pth'
 
-# 模型配置文件
-config_file = '/content/mmdetection/OBBDetection/configs/obb/oriented_rcnn/faster_rcnn_orpn_r50_fpn_1x_ssdd.py'
-
-# 预训练模型文件
-checkpoint_file = '/content/RESULT1/epoch_12.pth'
-
-# 通过模型配置文件与预训练文件构建模型
+# build the model from a config file and a checkpoint file
 model = init_detector(config_file, checkpoint_file, device='cuda:0')
 
-# 测试单张图片并进行展示
-img = '/content/SSDD-data/JPEGImages_test/000011'
+# test a single image and show the results
+img = '/content/SSDD-data/JPEGImages_train/000015.jpg'  # or img = mmcv.imread(img), which will only load it once
 result = inference_detector(model, img)
-show_result(img, result, model.CLASSES)
-
+# visualize the results in a new window
+model.show_result(img, result)
+# or save the visualization results to image files
+model.show_result(img, result, out_file='/content/result1.jpg')
