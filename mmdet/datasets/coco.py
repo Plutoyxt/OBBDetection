@@ -18,9 +18,9 @@ from .custom import CustomDataset
 @DATASETS.register_module()
 class CocoDataset(CustomDataset):
 
-   CLASSES = ('ship')
+    CLASSES = ('ship')
 
-   def load_annotations(self, ann_file):
+    def load_annotations(self, ann_file):
         """Load annotation from COCO style annotation file.
 
         Args:
@@ -434,7 +434,7 @@ class CocoDataset(CustomDataset):
                 for i, item in enumerate(metric_items):
                     val = float(f'{cocoEval.stats[i + 6]:.3f}')
                     eval_results[item] = val
-            else:
+            else: 
                 cocoEval.evaluate()
                 cocoEval.accumulate()
                 cocoEval.summarize()
