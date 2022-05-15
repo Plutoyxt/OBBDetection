@@ -20,7 +20,7 @@ class CocoDataset(CustomDataset):
 
    CLASSES = ('ship')
 
-    def load_annotations(self, ann_file):
+   def load_annotations(self, ann_file):
         """Load annotation from COCO style annotation file.
 
         Args:
