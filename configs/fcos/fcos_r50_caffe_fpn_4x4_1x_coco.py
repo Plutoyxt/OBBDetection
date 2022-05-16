@@ -86,14 +86,14 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=4,
-    workers_per_gpu=4,
+    samples_per_gpu=2,
+    workers_per_gpu=2,
     train=dict(pipeline=train_pipeline),
     val=dict(pipeline=test_pipeline),
     test=dict(pipeline=test_pipeline))
 # optimizer
 optimizer = dict(
-    lr=0.0018, paramwise_cfg=dict(bias_lr_mult=2., bias_decay_mult=0.))
+    lr=0.003, paramwise_cfg=dict(bias_lr_mult=2., bias_decay_mult=0.))
 optimizer_config = dict(
     _delete_=True, grad_clip=dict(max_norm=35, norm_type=2))
 # learning policy
@@ -103,4 +103,4 @@ lr_config = dict(
     warmup_iters=500,
     warmup_ratio=0.1,
     step=[8, 11])
-total_epochs = 12
+total_epochs = 24
