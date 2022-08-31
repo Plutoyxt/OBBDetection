@@ -27,7 +27,6 @@ test_pipeline = [
             dict(type='Collect', keys=['img']),
         ])
 ]
-/content/gdrive/MyDrive/ssdd_coco/train/train_image
 data = dict(
     samples_per_gpu=2,
     workers_per_gpu=2,
