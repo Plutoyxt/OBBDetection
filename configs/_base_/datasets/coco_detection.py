@@ -1,5 +1,5 @@
 dataset_type = 'CocoDataset'
-data_root = '/content/gdrive/MyDrive/ssdd_coco/'
+data_root = '/content/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
@@ -32,17 +32,17 @@ data = dict(
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
-        ann_file=data_root + 'train/train.json',
-        img_prefix=data_root + 'train/train_image/',
+        ann_file=data_root + 'ssdd-coco 2/annotations/train2017/trainval.json',
+        img_prefix=data_root + 'gdrive/MyDrive/train2 coco/',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
-        ann_file=data_root + 'val/val.json',
-        img_prefix=data_root + 'val/val_image/',
+        ann_file=data_root + 'ssdd-coco 2/annotations/val2017/test.json',
+        img_prefix=data_root + 'gdrive/MyDrive/val2 coco/',
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
-        ann_file=data_root + 'test/test.json',
-        img_prefix=data_root + 'test/test_image/',
+        ann_file=data_root + 'ssdd-coco 2/annotations/val2017/test.json',
+        img_prefix=data_root + 'gdrive/MyDrive/val2 coco/',
         pipeline=test_pipeline))
 evaluation = dict(interval=1, metric='bbox')
