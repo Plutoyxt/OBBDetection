@@ -28,21 +28,24 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=2,
-    workers_per_gpu=2,
+    samples_per_gpu=8,
+    workers_per_gpu=8,
     train=dict(
         type=dataset_type,
         ann_file=data_root + 'ssdd-coco 2/annotations/train2017/trainval.json',
         img_prefix=data_root + 'gdrive/MyDrive/train2 coco/',
+        #img_prefix=data_root + 'ssdd-coco 2/images/train/',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
         ann_file=data_root + 'ssdd-coco 2/annotations/val2017/test.json',
         img_prefix=data_root + 'gdrive/MyDrive/val2 coco/',
+        #img_prefix=data_root + 'ssdd-coco 2/images/test/',
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
         ann_file=data_root + 'ssdd-coco 2/annotations/val2017/test.json',
         img_prefix=data_root + 'gdrive/MyDrive/val2 coco/',
+        #img_prefix=data_root + 'ssdd-coco 2/images/test/',
         pipeline=test_pipeline))
 evaluation = dict(interval=1, metric='bbox')
