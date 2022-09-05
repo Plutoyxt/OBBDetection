@@ -37,31 +37,31 @@ test_pipeline = [
 
 # does evaluation while training
 # uncomments it  when you need evaluate every epoch
-# data = dict(
-    # samples_per_gpu=2,
-    # workers_per_gpu=4,
-    # train=dict(
-        # type=dataset_type,
-        # xmltype='obb',
-        # imgset=data_root + 'ImageSets/Main/trainval.txt',
-        # ann_file=data_root + 'Annotations/',
-        # img_prefix=data_root + 'JPEGImages/',
-        # pipeline=train_pipeline),
-    # val=dict(
-        # type=dataset_type,
-        # xmltype='obb',
-        # imgset=data_root + 'ImageSets/Main/test.txt',
-        # ann_file=data_root + 'Annotations/',
-        # img_prefix=data_root + 'JPEGImages/',
-        # pipeline=test_pipeline),
-    # test=dict(
-        # type=dataset_type,
-        # xmltype='obb',
-        # imgset=data_root + 'ImageSets/Main/test.txt',
-        # ann_file=data_root + 'Annotations/',
-        # img_prefix=data_root + 'JPEGImages/',
-        # pipeline=test_pipeline))
-# evaluation = dict(metric='mAP')
+data = dict(
+     samples_per_gpu=8,
+     workers_per_gpu=8,
+     train=dict(
+         type=dataset_type,
+         xmltype='obb',
+         imgset=data_root + 'SSDD-data/ImageSets/Main/train.txt',
+         ann_file=data_root + 'SSDD-data/Annotations/',
+         img_prefix=data_root + 'gdrive/MyDrive/train2 coco/',
+         pipeline=train_pipeline),
+     val=dict(
+         type=dataset_type,
+         xmltype='obb',
+         imgset=data_root + 'ImageSets/Main/test.txt',
+         ann_file=data_root + 'SSDD-data/Annotations/',
+         img_prefix=data_root + 'gdrive/MyDrive/val2 coco/',
+         pipeline=test_pipeline),
+     test=dict(
+         type=dataset_type,
+         xmltype='obb',
+         imgset=data_root + 'ImageSets/Main/test.txt',
+         ann_file=data_root + 'SSDD-data/Annotations/',
+         img_prefix=data_root + 'gdrive/MyDrive/val2 coco/',
+         pipeline=test_pipeline))
+evaluation = dict(metric='mAP')
 
 # disable evluation, only need train and test
 # uncomments it when use trainval as train
