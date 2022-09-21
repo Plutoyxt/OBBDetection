@@ -102,7 +102,7 @@ optimizer_config = dict(grad_clip=None)
 lr_config = dict(
     policy='step',
     warmup='constant',
-    warmup_iters=100,
-    warmup_ratio=0.1,
+    warmup_iters=500,
+    warmup_ratio=1.0/3,
     step=[60, 80])
 total_epochs = 80
