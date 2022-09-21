@@ -28,24 +28,24 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=8,
-    workers_per_gpu=8,
+    samples_per_gpu=4,
+    workers_per_gpu=4,
     train=dict(
         type=dataset_type,
-        ann_file=data_root + 'ssdd-coco 2/annotations/train2017/trainval.json',
-        img_prefix=data_root + 'gdrive/MyDrive/train2 coco/',
+        ann_file=data_root + 'gdrive/MyDrive/HRSID_JPG/annotations/train2017.json',
+        img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/after_train_image/',
         #img_prefix=data_root + 'ssdd-coco 2/images/train/',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
-        ann_file=data_root + 'ssdd-coco 2/annotations/val2017/test.json',
-        img_prefix=data_root + 'gdrive/MyDrive/val2 coco/',
+        ann_file=data_root + 'gdrive/MyDrive/HRSID_JPG/annotations/test2017.json',
+        img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/after_test_image/',
         #img_prefix=data_root + 'ssdd-coco 2/images/test/',
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
-        ann_file=data_root + 'ssdd-coco 2/annotations/val2017/test.json',
-        img_prefix=data_root + 'gdrive/MyDrive/val2 coco/',
+        ann_file=data_root + 'gdrive/MyDrive/HRSID_JPG/annotations/test2017.json',
+        img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/after_test_image/',
         #img_prefix=data_root + 'ssdd-coco 2/images/test/',
         pipeline=test_pipeline))
 evaluation = dict(interval=1, metric='bbox')
