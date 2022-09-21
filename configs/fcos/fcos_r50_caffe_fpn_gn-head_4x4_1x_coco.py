@@ -1,4 +1,4 @@
-_base_ = [
+ _base_ = [
     '../_base_/datasets/coco_detection.py',
     '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py'
 ]
@@ -92,7 +92,7 @@ data = dict(
     test=dict(pipeline=test_pipeline))
 # optimizer
 optimizer = dict(
-    lr=0.006, paramwise_cfg=dict(bias_lr_mult=2., bias_decay_mult=0.))
+    lr=0.002, paramwise_cfg=dict(bias_lr_mult=2., bias_decay_mult=0.))
 optimizer_config = dict(
     _delete_=True, grad_clip=dict(max_norm=35, norm_type=2))
 # learning policy
@@ -100,6 +100,6 @@ lr_config = dict(
     policy='step',
     warmup='constant',
     warmup_iters=500,
-    warmup_ratio=0.001,
-    step=[200, 300])
-total_epochs = 300
+    warmup_ratio=0.0001,
+    step=[80, 100])
+total_epochs = 100
