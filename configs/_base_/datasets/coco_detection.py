@@ -5,7 +5,7 @@ img_norm_cfg = dict(
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True),
-    dict(type='Resize', img_scale=(500, 500), keep_ratio=True),
+    dict(type='Resize', img_scale=(800, 800), keep_ratio=True),
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size_divisor=32),
@@ -16,7 +16,7 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=(500, 500),
+        img_scale=(800, 800),
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),
@@ -28,27 +28,27 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=8,
-    workers_per_gpu=8,
+    samples_per_gpu=4,
+    workers_per_gpu=4,
     train=dict(
         type=dataset_type,
-        ann_file=data_root + 'gdrive/MyDrive/ssdd_coco/train1/train.json',
-        #ann_file=data_root + 'gdrive/MyDrive/HRSID_JPG/annotations/train2017.json',
-        #img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/after_train_image/',
-        img_prefix=data_root + 'gdrive/MyDrive/ssdd_coco/train1/after_train_image/',
+        #ann_file=data_root + 'gdrive/MyDrive/ssdd_coco/train1/train.json',
+        ann_file=data_root + 'gdrive/MyDrive/HRSID_JPG/annotations/train2017.json',
+        img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/after_train_image/',
+        #img_prefix=data_root + 'gdrive/MyDrive/ssdd_coco/train1/after_train_image/',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
-        ann_file=data_root + 'gdrive/MyDrive/ssdd_coco/val1/val.json',
-        #img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/after_test_image/',
-        img_prefix=data_root + 'gdrive/MyDrive/ssdd_coco/val1/after_val_image/',
+        ann_file=data_root + 'gdrive/MyDrive/HRSID_JPG/annotations/test2017.json',
+        img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/after_test_image/',
+        #img_prefix=data_root + 'gdrive/MyDrive/ssdd_coco/val1/after_val_image/',
         #gdrive/MyDrive/ssdd_coco/val1/val.json
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
-        ann_file=data_root + 'gdrive/MyDrive/ssdd_coco/test1/test.json',
+        ann_file=data_root + 'gdrive/MyDrive/HRSID_JPG/annotations/test2017.json',
         #'gdrive/MyDrive/ssdd_coco/test1/test.json'
-        #img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/after_test_image/',
-        img_prefix=data_root + 'gdrive/MyDrive/ssdd_coco/test1/after_test_image/',
+        img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/after_test_image/',
+        #img_prefix=data_root + 'gdrive/MyDrive/ssdd_coco/test1/after_test_image/',
         pipeline=test_pipeline))
 evaluation = dict(interval=1, metric='bbox')
