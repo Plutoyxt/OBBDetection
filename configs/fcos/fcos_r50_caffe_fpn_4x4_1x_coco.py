@@ -63,7 +63,7 @@ img_norm_cfg = dict(
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True),
-    dict(type='Resize', img_scale=(500, 500), keep_ratio=True),
+    dict(type='Resize', img_scale=(800, 800), keep_ratio=True),
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size_divisor=32),
@@ -74,7 +74,7 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=(500, 500),
+        img_scale=(800, 800),
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),
@@ -96,7 +96,7 @@ data = dict(
  #   lr=0.002, paramwise_cfg=dict(bias_lr_mult=2., bias_decay_mult=0.))
 #optimizer_config = dict(
  #   _delete_=True, grad_clip=dict(max_norm=35, norm_type=2))
-optimizer = dict(type='SGD', lr=0.004,paramwise_cfg=dict(bias_lr_mult=2., bias_decay_mult=0.), momentum=0.9, weight_decay=0.0001)
+optimizer = dict(type='SGD', lr=0.002,paramwise_cfg=dict(bias_lr_mult=2., bias_decay_mult=0.), momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=None)
 # learning policy
 lr_config = dict(
@@ -104,5 +104,5 @@ lr_config = dict(
     warmup='constant',
     warmup_iters=500,
     warmup_ratio=1.0/3,
-    step=[15, 20])
-total_epochs = 20
+    step=[40, 60])
+total_epochs = 60
