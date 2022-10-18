@@ -104,5 +104,5 @@ lr_config = dict(
     warmup='constant',
     warmup_iters=500,
     warmup_ratio=1.0/3,
-    step=[15, 20])
-total_epochs = 20
+    step=[25, 30])
+total_epochs = 30
