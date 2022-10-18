@@ -34,21 +34,21 @@ data = dict(
         type=dataset_type,
         #ann_file=data_root + 'gdrive/MyDrive/ssdd_coco/train1/train.json',
         ann_file=data_root + 'gdrive/MyDrive/HRSID_JPG/annotations/train2017.json',
-        img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/after_train_image/',
+        img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/train_image/',
         #img_prefix=data_root + 'gdrive/MyDrive/ssdd_coco/train1/after_train_image/',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
         ann_file=data_root + 'gdrive/MyDrive/HRSID_JPG/annotations/test2017.json',
-        img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/after_test_image/',
-        #img_prefix=data_root + 'gdrive/MyDrive/ssdd_coco/val1/after_val_image/',
+        img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/test_image/',
+        #img_prefix=data_root + 'gdrive/MyDrive/ssdd_coco/val1/val_image/',
         #gdrive/MyDrive/ssdd_coco/val1/val.json
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
         ann_file=data_root + 'gdrive/MyDrive/HRSID_JPG/annotations/test2017.json',
         #'gdrive/MyDrive/ssdd_coco/test1/test.json'
-        img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/after_test_image/',
+        img_prefix=data_root + 'gdrive/MyDrive/HRSID_JPG/test_image/',
         #img_prefix=data_root + 'gdrive/MyDrive/ssdd_coco/test1/after_test_image/',
         pipeline=test_pipeline))
 evaluation = dict(interval=1, metric='bbox')
